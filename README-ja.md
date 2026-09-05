@@ -68,3 +68,5 @@ claude mcp add time -- uv --directory /Users/kujirahand/repos/mcp_server-time ru
 ## ライセンス
 
 MIT ライセンスです。詳細は [LICENSE](LICENSE) を参照してください。
+
+公開手順は [docs/publish-ja.md](docs/publish-ja.md) を参照してください。
