@@ -9,8 +9,9 @@
 | `get_local_time` | *(なし)* | 時刻オブジェクト | サーバーが動作しているマシンのローカル現在日時を返す |
 | `get_time_in_timezone` | `timezone` (文字列, 必須) — IANA 名。例: `Asia/Tokyo` | 時刻オブジェクト | 指定タイムゾーンの現在日時を返す。不明な名前ならエラー |
 | `list_timezones` | `query` (文字列, 任意, 既定値 `""`) — 大文字小文字を無視した部分一致。空なら全件 | `string[]` | 利用可能な IANA タイムゾーン名 (最大200件) |
+| `get_time_from_ntp` | `server` (文字列, 任意) — 短縮名かホスト名; `timezone` (文字列, 任意) — IANA 名。省略時はローカル | 時刻オブジェクト + `ntp_server`, `local_clock_offset_seconds` | ローカル時計ではなく公開 NTP サーバーから現在時刻を取得する |
 
-`get_local_time` と `get_time_in_timezone` が返す時刻オブジェクト:
+各ツールが返す時刻オブジェクト:
 
 | フィールド | 型 | 例 |
 | --- | --- | --- |
@@ -21,6 +22,25 @@
 | `weekday` | 文字列 | `Saturday` |
 | `utc_offset` | 文字列 | `+0900` |
 | `unix_timestamp` | 整数 | `1788585032` |
+
+`get_time_from_ntp` はさらに2つのフィールドを返します。`ntp_server` (実際に使用したホスト) と
+`local_clock_offset_seconds` (マシンの時計と NTP 時刻とのずれ。正の値ならローカル時計が遅れている)。
+
+### NTP サーバー
+
+`server` には次の短縮名、または任意の NTP ホスト名を指定できます。
+
+| 短縮名 | ホスト | 運用元 |
+| --- | --- | --- |
+| `apple` | `time.apple.com` | Apple |
+| `microsoft` / `windows` | `time.windows.com` | Microsoft |
+| `nict` | `ntp.nict.jp` | 情報通信研究機構 (NICT) |
+| `google` | `time.google.com` | Google |
+| `cloudflare` | `time.cloudflare.com` | Cloudflare |
+| `pool` | `pool.ntp.org` | NTP Pool Project |
+
+`server` を省略した場合は `time.apple.com` を先に試し、失敗したら `time.windows.com` を使います。
+UDP 123番ポートでの外部通信が必要です。タイムアウトは5秒です。
 
 ## インストール
 
