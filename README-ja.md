@@ -52,3 +52,7 @@ claude mcp add time -- uv --directory /Users/kujirahand/repos/mcp_server-time ru
   }
 }
 ```
+
+## ライセンス
+
+MIT ライセンスです。詳細は [LICENSE](LICENSE) を参照してください。

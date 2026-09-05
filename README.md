@@ -54,3 +54,7 @@ Or in `claude_desktop_config.json`:
   }
 }
 ```
+
+## License
+
+MIT License. See [LICENSE](LICENSE).

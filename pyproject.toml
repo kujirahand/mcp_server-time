@@ -3,6 +3,9 @@ name = "time-mcp"
 version = "0.1.0"
 description = "MCP server that returns local time and time in arbitrary IANA timezones"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "kujirahand" }]
 requires-python = ">=3.10"
 dependencies = [
     "mcp[cli]>=2.1.1",
