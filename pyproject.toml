@@ -7,10 +7,27 @@ license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "kujirahand" }]
 requires-python = ">=3.10"
+keywords = ["mcp", "model-context-protocol", "time", "timezone", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 dependencies = [
     "mcp[cli]>=2.1.1",
     "tzdata>=2024.1",
 ]
+
+[project.urls]
+Homepage = "https://github.com/kujirahand/mcp_server-time"
+Repository = "https://github.com/kujirahand/mcp_server-time"
+Issues = "https://github.com/kujirahand/mcp_server-time/issues"
 
 [project.scripts]
 time-mcp = "time_mcp.server:main"

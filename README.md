@@ -2,7 +2,7 @@
 
 An MCP server that returns the local current time and the current time in any IANA timezone.
 
-Japanese version: [README-ja.md](README-ja.md)
+> [日本語はこちら(README-ja.md)](https://github.com/kujirahand/mcp_server-time/blob/main/README-ja.md)
 
 ## Tools
 
@@ -24,7 +24,19 @@ The time object returned by `get_local_time` and `get_time_in_timezone`:
 | `utc_offset` | string | `+0900` |
 | `unix_timestamp` | integer | `1788585032` |
 
-## Setup
+## Install
+
+```sh
+pip install time-mcp
+```
+
+Or run it without installing:
+
+```sh
+uvx time-mcp
+```
+
+## Development setup
 
 ```sh
 uv sync

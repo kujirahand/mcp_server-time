@@ -22,7 +22,19 @@
 | `utc_offset` | 文字列 | `+0900` |
 | `unix_timestamp` | 整数 | `1788585032` |
 
-## セットアップ
+## インストール
+
+```sh
+pip install time-mcp
+```
+
+インストールせずに実行する場合:
+
+```sh
+uvx time-mcp
+```
+
+## 開発用セットアップ
 
 ```sh
 uv sync
