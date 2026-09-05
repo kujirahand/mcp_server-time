@@ -49,7 +49,7 @@ uv run mcp dev src/time_mcp/server.py
 ## Claude Code への登録
 
 ```sh
-claude mcp add time -- uv --directory /Users/kujirahand/repos/mcp_server-time run time-mcp
+claude mcp add time -- uvx time-mcp
 ```
 
 `claude_desktop_config.json` に書く場合:
@@ -58,15 +58,45 @@ claude mcp add time -- uv --directory /Users/kujirahand/repos/mcp_server-time ru
 {
   "mcpServers": {
     "time": {
-      "command": "uv",
-      "args": ["--directory", "/Users/kujirahand/repos/mcp_server-time", "run", "time-mcp"]
+      "command": "uvx",
+      "args": ["time-mcp"]
     }
   }
 }
+```
+
+## Codex CLI への登録
+
+```sh
+codex mcp add time -- uvx time-mcp
+```
+
+`~/.codex/config.toml` に直接書く場合:
+
+```toml
+[mcp_servers.time]
+command = "uvx"
+args = ["time-mcp"]
+```
+
+登録できたか確認する:
+
+```sh
+codex mcp list
+```
+
+## ローカルのソースから実行する場合
+
+上記の設定の `uvx time-mcp` の部分を、次のように置き換えます。
+
+```sh
+uv --directory /path/to/mcp_server-time run time-mcp
 ```
 
 ## ライセンス
 
 MIT ライセンスです。詳細は [LICENSE](LICENSE) を参照してください。
 
-公開手順は [docs/publish-ja.md](docs/publish-ja.md) を参照してください。
+## 公開手順
+
+PyPI への公開手順は [docs/publish-ja.md](docs/publish-ja.md) を参照してください。

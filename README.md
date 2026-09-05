@@ -51,7 +51,7 @@ uv run mcp dev src/time_mcp/server.py
 ## Register with Claude Code
 
 ```sh
-claude mcp add time -- uv --directory /Users/kujirahand/repos/mcp_server-time run time-mcp
+claude mcp add time -- uvx time-mcp
 ```
 
 Or in `claude_desktop_config.json`:
@@ -60,11 +60,39 @@ Or in `claude_desktop_config.json`:
 {
   "mcpServers": {
     "time": {
-      "command": "uv",
-      "args": ["--directory", "/Users/kujirahand/repos/mcp_server-time", "run", "time-mcp"]
+      "command": "uvx",
+      "args": ["time-mcp"]
     }
   }
 }
+```
+
+## Register with Codex CLI
+
+```sh
+codex mcp add time -- uvx time-mcp
+```
+
+Or add it to `~/.codex/config.toml` by hand:
+
+```toml
+[mcp_servers.time]
+command = "uvx"
+args = ["time-mcp"]
+```
+
+Check that it is registered:
+
+```sh
+codex mcp list
+```
+
+## Running from a local checkout
+
+Replace `uvx time-mcp` with the following in any of the configurations above:
+
+```sh
+uv --directory /path/to/mcp_server-time run time-mcp
 ```
 
 ## License
